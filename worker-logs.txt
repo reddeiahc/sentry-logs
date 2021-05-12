@@ -1,0 +1,822 @@
+docker-compose logs worker
+Attaching to sentry_onpremise_worker_1
+worker_1                                    | 08:07:36 [INFO] sentry.plugins.github: apps-not-configured
+worker_1                                    | 08:07:41 [INFO] sentry.bgtasks: bgtask.spawn (task_name='sentry.bgtasks.clean_dsymcache:clean_dsymcache')
+worker_1                                    | 08:07:41 [INFO] sentry.bgtasks: bgtask.spawn (task_name='sentry.bgtasks.clean_releasefilecache:clean_releasefilecache')
+worker_1                                    |
+worker_1                                    |  -------------- celery@c24c90b5600b v4.4.7 (cliffs)
+worker_1                                    | --- ***** -----
+worker_1                                    | -- ******* ---- Linux-5.4.0-1047-aws-x86_64-with-debian-10.9 2021-05-11 08:07:55
+worker_1                                    | - *** --- * ---
+worker_1                                    | - ** ---------- [config]
+worker_1                                    | - ** ---------- .> app:         sentry:0x7fadfd1fa390
+worker_1                                    | - ** ---------- .> transport:   redis://redis:6379/0
+worker_1                                    | - ** ---------- .> results:     disabled://
+worker_1                                    | - *** --- * --- .> concurrency: 2 (prefork)
+worker_1                                    | -- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+worker_1                                    | --- ***** -----
+worker_1                                    |  -------------- [queues]
+worker_1                                    |                 .> activity.notify  exchange=default(direct) key=activity.notify
+worker_1                                    |                 .> alerts           exchange=default(direct) key=alerts
+worker_1                                    |                 .> app_platform     exchange=default(direct) key=app_platform
+worker_1                                    |                 .> assemble         exchange=default(direct) key=assemble
+worker_1                                    |                 .> auth             exchange=default(direct) key=auth
+worker_1                                    |                 .> buffers.process_pending exchange=default(direct) key=buffers.process_pending
+worker_1                                    |                 .> cleanup          exchange=default(direct) key=cleanup
+worker_1                                    |                 .> commits          exchange=default(direct) key=commits
+worker_1                                    |                 .> counters-0       exchange=counters(direct) key=default
+worker_1                                    |                 .> data_export      exchange=default(direct) key=data_export
+worker_1                                    |                 .> default          exchange=default(direct) key=default
+worker_1                                    |                 .> digests.delivery exchange=default(direct) key=digests.delivery
+worker_1                                    |                 .> digests.scheduling exchange=default(direct) key=digests.scheduling
+worker_1                                    |                 .> email            exchange=default(direct) key=email
+worker_1                                    |                 .> events.preprocess_event exchange=default(direct) key=events.preprocess_event
+worker_1                                    |                 .> events.process_event exchange=default(direct) key=events.process_event
+worker_1                                    |                 .> events.reprocess_events exchange=default(direct) key=events.reprocess_events
+worker_1                                    |                 .> events.reprocessing.preprocess_event exchange=default(direct) key=events.reprocessing.preprocess_event
+worker_1                                    |                 .> events.reprocessing.process_event exchange=default(direct) key=events.reprocessing.process_event
+worker_1                                    |                 .> events.reprocessing.symbolicate_event exchange=default(direct) key=events.reprocessing.symbolicate_event
+worker_1                                    |                 .> events.save_event exchange=default(direct) key=events.save_event
+worker_1                                    |                 .> events.symbolicate_event exchange=default(direct) key=events.symbolicate_event
+worker_1                                    |                 .> files.delete     exchange=default(direct) key=files.delete
+worker_1                                    |                 .> group_owners.process_suspect_commits exchange=default(direct) key=group_owners.process_suspect_commits
+worker_1                                    |                 .> incident_snapshots exchange=default(direct) key=incident_snapshots
+worker_1                                    |                 .> incidents        exchange=default(direct) key=incidents
+worker_1                                    |                 .> integrations     exchange=default(direct) key=integrations
+worker_1                                    |                 .> merge            exchange=default(direct) key=merge
+worker_1                                    |                 .> options          exchange=default(direct) key=options
+worker_1                                    |                 .> relay_config     exchange=default(direct) key=relay_config
+worker_1                                    |                 .> reports.deliver  exchange=default(direct) key=reports.deliver
+worker_1                                    |                 .> reports.prepare  exchange=default(direct) key=reports.prepare
+worker_1                                    |                 .> search           exchange=default(direct) key=search
+worker_1                                    |                 .> sleep            exchange=default(direct) key=sleep
+worker_1                                    |                 .> stats            exchange=default(direct) key=stats
+worker_1                                    |                 .> subscriptions    exchange=default(direct) key=subscriptions
+worker_1                                    |                 .> triggers-0       exchange=triggers(direct) key=default
+worker_1                                    |                 .> unmerge          exchange=default(direct) key=unmerge
+worker_1                                    |                 .> update           exchange=default(direct) key=update
+worker_1                                    |
+worker_1                                    | 08:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 08:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+worker_1                                    |     blueprint.start(self)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/bootsteps.py", line 119, in start
+worker_1                                    |     step.start(parent)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+worker_1                                    |     c.loop(*c.loop_args())
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/worker/loops.py", line 83, in asynloop
+worker_1                                    |     next(loop)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/kombu/asynchronous/hub.py", line 364, in create_loop
+worker_1                                    |     cb(*cbargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/kombu/transport/redis.py", line 1083, in on_readable
+worker_1                                    |     self.cycle.on_readable(fileno)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/kombu/transport/redis.py", line 354, in on_readable
+worker_1                                    |     chan.handlers[type]()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/kombu/transport/redis.py", line 688, in _receive
+worker_1                                    |     ret.append(self._receive_one(c))
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/kombu/transport/redis.py", line 698, in _receive_one
+worker_1                                    |     response = c.parse_response()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/redis/client.py", line 3453, in parse_response
+worker_1                                    |     response = self._execute(conn, conn.read_response)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/redis/client.py", line 3427, in _execute
+worker_1                                    |     return command(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/redis/connection.py", line 734, in read_response
+worker_1                                    |     response = self._parser.read_response()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/redis/connection.py", line 463, in read_response
+worker_1                                    |     self.read_from_socket()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/redis/connection.py", line 422, in read_from_socket
+worker_1                                    |     raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+worker_1                                    | redis.exceptions.ConnectionError: Connection closed by server.
+worker_1                                    | 08:29:02 [WARNING] celery.worker.consumer.consumer: consumer: Connection to broker lost. Trying to re-establish the connection...
+worker_1                                    | 08:29:02 [ERROR] celery.worker.consumer.consumer: consumer: Cannot connect to redis://redis:6379/0: Error 111 connecting to redis:6379. Connection refused..
+worker_1                                    | Trying again in 2.00 seconds... (1/100)
+worker_1                                    |
+worker_1                                    | 08:29:03 [ERROR] sentry_sdk.errors: Unexpected status code: 502 (body: b'<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n</body>\r\n</html>\r\n')
+worker_1                                    | 08:29:04 [INFO] sentry.bgtasks: bgtask.stop (task_name='sentry.bgtasks.clean_dsymcache:clean_dsymcache')
+worker_1                                    | 08:29:04 [INFO] sentry.bgtasks: bgtask.stop (task_name='sentry.bgtasks.clean_releasefilecache:clean_releasefilecache')
+worker_1                                    |
+worker_1                                    | worker: Warm shutdown (MainProcess)
+worker_1                                    | 08:29:51 [INFO] sentry.plugins.github: apps-not-configured
+worker_1                                    | 08:29:53 [INFO] sentry.bgtasks: bgtask.spawn (task_name='sentry.bgtasks.clean_dsymcache:clean_dsymcache')
+worker_1                                    | 08:29:53 [INFO] sentry.bgtasks: bgtask.spawn (task_name='sentry.bgtasks.clean_releasefilecache:clean_releasefilecache')
+worker_1                                    |
+worker_1                                    |  -------------- celery@c24c90b5600b v4.4.7 (cliffs)
+worker_1                                    | --- ***** -----
+worker_1                                    | -- ******* ---- Linux-5.4.0-1047-aws-x86_64-with-debian-10.9 2021-05-11 08:29:57
+worker_1                                    | - *** --- * ---
+worker_1                                    | - ** ---------- [config]
+worker_1                                    | - ** ---------- .> app:         sentry:0x7f89237f4390
+worker_1                                    | - ** ---------- .> transport:   redis://redis:6379/0
+worker_1                                    | - ** ---------- .> results:     disabled://
+worker_1                                    | - *** --- * --- .> concurrency: 2 (prefork)
+worker_1                                    | -- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+worker_1                                    | --- ***** -----
+worker_1                                    |  -------------- [queues]
+worker_1                                    |                 .> activity.notify  exchange=default(direct) key=activity.notify
+worker_1                                    |                 .> alerts           exchange=default(direct) key=alerts
+worker_1                                    |                 .> app_platform     exchange=default(direct) key=app_platform
+worker_1                                    |                 .> assemble         exchange=default(direct) key=assemble
+worker_1                                    |                 .> auth             exchange=default(direct) key=auth
+worker_1                                    |                 .> buffers.process_pending exchange=default(direct) key=buffers.process_pending
+worker_1                                    |                 .> cleanup          exchange=default(direct) key=cleanup
+worker_1                                    |                 .> commits          exchange=default(direct) key=commits
+worker_1                                    |                 .> counters-0       exchange=counters(direct) key=default
+worker_1                                    |                 .> data_export      exchange=default(direct) key=data_export
+worker_1                                    |                 .> default          exchange=default(direct) key=default
+worker_1                                    |                 .> digests.delivery exchange=default(direct) key=digests.delivery
+worker_1                                    |                 .> digests.scheduling exchange=default(direct) key=digests.scheduling
+worker_1                                    |                 .> email            exchange=default(direct) key=email
+worker_1                                    |                 .> events.preprocess_event exchange=default(direct) key=events.preprocess_event
+worker_1                                    |                 .> events.process_event exchange=default(direct) key=events.process_event
+worker_1                                    |                 .> events.reprocess_events exchange=default(direct) key=events.reprocess_events
+worker_1                                    |                 .> events.reprocessing.preprocess_event exchange=default(direct) key=events.reprocessing.preprocess_event
+worker_1                                    |                 .> events.reprocessing.process_event exchange=default(direct) key=events.reprocessing.process_event
+worker_1                                    |                 .> events.reprocessing.symbolicate_event exchange=default(direct) key=events.reprocessing.symbolicate_event
+worker_1                                    |                 .> events.save_event exchange=default(direct) key=events.save_event
+worker_1                                    |                 .> events.symbolicate_event exchange=default(direct) key=events.symbolicate_event
+worker_1                                    |                 .> files.delete     exchange=default(direct) key=files.delete
+worker_1                                    |                 .> group_owners.process_suspect_commits exchange=default(direct) key=group_owners.process_suspect_commits
+worker_1                                    |                 .> incident_snapshots exchange=default(direct) key=incident_snapshots
+worker_1                                    |                 .> incidents        exchange=default(direct) key=incidents
+worker_1                                    |                 .> integrations     exchange=default(direct) key=integrations
+worker_1                                    |                 .> merge            exchange=default(direct) key=merge
+worker_1                                    |                 .> options          exchange=default(direct) key=options
+worker_1                                    |                 .> relay_config     exchange=default(direct) key=relay_config
+worker_1                                    |                 .> reports.deliver  exchange=default(direct) key=reports.deliver
+worker_1                                    |                 .> reports.prepare  exchange=default(direct) key=reports.prepare
+worker_1                                    |                 .> search           exchange=default(direct) key=search
+worker_1                                    |                 .> sleep            exchange=default(direct) key=sleep
+worker_1                                    |                 .> stats            exchange=default(direct) key=stats
+worker_1                                    |                 .> subscriptions    exchange=default(direct) key=subscriptions
+worker_1                                    |                 .> triggers-0       exchange=triggers(direct) key=default
+worker_1                                    |                 .> unmerge          exchange=default(direct) key=unmerge
+worker_1                                    |                 .> update           exchange=default(direct) key=update
+worker_1                                    |
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 08:31:46 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[a6af85c1-46f9-43c6-a811-cf450a55cc7f] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': 'a6af85c1-46f9-43c6-a811-cf450a55cc7f', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f891789e9b0>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | 08:31:50 [INFO] sentry.mail.adapter: mail.adapter.notification.dispatched (event_id='4098b1efeb464f83b47837e791682b85' group_id=25 is_from_mail_action_adapter=True target_type='IssueOwners' rule_id=1 project_id=1 digest_key='mail:p:1:IssueOwners:')
+worker_1                                    | 08:31:50 [INFO] sentry.mail.adapter: mail.adapter.notify_digest (project_id=1 target_type='IssueOwners' user_ids={1, 4, 5})
+worker_1                                    | 08:31:50 [INFO] sentry.notifications.rules: mail.adapter.notify (target_type='IssueOwners' group=25 project_id=1)
+worker_1                                    | 08:31:50 [INFO] sentry.mail.notifications: mail.adapter.notify.mail_user (project_id=1 user_id=1 group=25 target_type=<ActionTargetType.ISSUE_OWNERS: 'IssueOwners'>)
+worker_1                                    | 08:31:51 [INFO] sentry.mail: mail.queued (message_type='notify.error' group_id=25 message_id='<20210511083150.28.67795@isteer.com>' message_to=('chandra.r@isteer.com',))
+worker_1                                    | 08:31:51 [INFO] sentry.mail.notifications: mail.adapter.notify.mail_user (project_id=1 user_id=4 group=25 target_type=<ActionTargetType.ISSUE_OWNERS: 'IssueOwners'>)
+worker_1                                    | 08:31:51 [INFO] sentry.mail: mail.queued (message_type='notify.error' group_id=25 message_id='<20210511083151.28.64164@isteer.com>' message_to=('sreekanth.m@isteer.com',))
+worker_1                                    | 08:31:51 [INFO] sentry.mail.notifications: mail.adapter.notify.mail_user (project_id=1 user_id=5 group=25 target_type=<ActionTargetType.ISSUE_OWNERS: 'IssueOwners'>)
+worker_1                                    | 08:31:51 [INFO] sentry.mail: mail.queued (message_type='notify.error' group_id=25 message_id='<20210511083151.28.83869@isteer.com>' message_to=('hrusikesh.t@isteer.com',))
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 08:32:01 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[ad787f6b-9e5e-4c97-9c2e-c9e3ddc760bf] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': 'ad787f6b-9e5e-4c97-9c2e-c9e3ddc760bf', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f8914618be0>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 08:32:02 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[a9f15a1c-99d5-4c7a-9479-6ee84a225d24] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': 'a9f15a1c-99d5-4c7a-9479-6ee84a225d24', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f8917804828>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 08:32:11 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[fc3d4475-2d66-41dc-80b8-da11e31ffb63] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': 'fc3d4475-2d66-41dc-80b8-da11e31ffb63', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f89145c1e80>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | 08:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:36:55 [INFO] sentry.tasks.digests: Skipped digest delivery due to empty digest (project=1 target_type='IssueOwners')
+worker_1                                    | 08:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 08:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 08:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:35:03 [INFO] sentry.mail.adapter: mail.adapter.notification.dispatched (event_id='f2fb072b843a442c9d21f525c8de3a6d' group_id=26 is_from_mail_action_adapter=True target_type='Team' target_identifier=1 rule_id=9 project_id=5 digest_key='mail:p:5:Team:1')
+worker_1                                    | 09:35:03 [INFO] sentry.mail.adapter: mail.adapter.notify_digest (project_id=5 target_type='Team' target_identifier='1' user_ids={1, 4, 5})
+worker_1                                    | 09:35:03 [INFO] sentry.notifications.rules: mail.adapter.notify (target_type='Team' target_identifier='1' group=26 project_id=5)
+worker_1                                    | 09:35:03 [INFO] sentry.mail.notifications: mail.adapter.notify.mail_user (project_id=5 user_id=1 group=26 target_type=<ActionTargetType.TEAM: 'Team'> target_identifier='1')
+worker_1                                    | 09:35:03 [INFO] sentry.mail: mail.queued (message_type='notify.error' group_id=26 message_id='<20210511093503.28.77027@isteer.com>' message_to=('chandra.r@isteer.com',))
+worker_1                                    | 09:35:03 [INFO] sentry.mail.notifications: mail.adapter.notify.mail_user (project_id=5 user_id=4 group=26 target_type=<ActionTargetType.TEAM: 'Team'> target_identifier='1')
+worker_1                                    | 09:35:04 [INFO] sentry.mail: mail.queued (message_type='notify.error' group_id=26 message_id='<20210511093503.28.66904@isteer.com>' message_to=('sreekanth.m@isteer.com',))
+worker_1                                    | 09:35:04 [INFO] sentry.mail.notifications: mail.adapter.notify.mail_user (project_id=5 user_id=5 group=26 target_type=<ActionTargetType.TEAM: 'Team'> target_identifier='1')
+worker_1                                    | 09:35:04 [INFO] sentry.mail: mail.queued (message_type='notify.error' group_id=26 message_id='<20210511093504.28.73215@isteer.com>' message_to=('hrusikesh.t@isteer.com',))
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 09:35:14 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[6af87b39-6a26-4415-adeb-f9c93acfc1a2] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': '6af87b39-6a26-4415-adeb-f9c93acfc1a2', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f8914438e80>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 09:35:14 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[3dd3eaff-dae4-43a1-be07-71da8f9a5f8b] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': '3dd3eaff-dae4-43a1-be07-71da8f9a5f8b', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f891702f128>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 09:35:24 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[8cdc86db-a9cb-48fd-8a35-728fd971c1c2] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': '8cdc86db-a9cb-48fd-8a35-728fd971c1c2', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f89144ceda0>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | 09:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:40:26 [INFO] sentry.tasks.digests: Skipped digest delivery due to empty digest (project=5 target_type='Team' target_identifier='1')
+worker_1                                    | 09:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 11:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 11:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 11:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 11:46:28 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[7d68f9a3-f510-45de-a9dc-d62773ad6b11] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': '7d68f9a3-f510-45de-a9dc-d62773ad6b11', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f89144b3c50>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | 11:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | Traceback (most recent call last):
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task
+worker_1                                    |     R = retval = fun(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__
+worker_1                                    |     return self.run(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner
+worker_1                                    |     reraise(*exc_info)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise
+worker_1                                    |     raise value
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner
+worker_1                                    |     return f(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped
+worker_1                                    |     result = func(*args, **kwargs)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email
+worker_1                                    |     send_messages([message])
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages
+worker_1                                    |     sent = connection.send_messages(messages)
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages
+worker_1                                    |     new_conn_created = self.open()
+worker_1                                    |   File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open
+worker_1                                    |     self.connection = self.connection_class(self.host, self.port, **connection_params)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__
+worker_1                                    |     source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__
+worker_1                                    |     (code, msg) = self.connect(host, port)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect
+worker_1                                    |     self.sock = self._get_socket(host, port, self.timeout)
+worker_1                                    |   File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket
+worker_1                                    |     self.source_address)
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection
+worker_1                                    |     raise err
+worker_1                                    |   File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection
+worker_1                                    |     sock.connect(sa)
+worker_1                                    | OSError: [Errno 99] Cannot assign requested address
+worker_1                                    | 11:51:02 [ERROR] celery.app.trace: Task sentry.tasks.email.send_email[d89a5690-a067-45fb-931c-a9bdb89dd27a] raised unexpected: OSError(99, 'Cannot assign requested address') (data={'hostname': 'c24c90b5600b', 'id': 'd89a5690-a067-45fb-931c-a9bdb89dd27a', 'name': 'sentry.tasks.email.send_email', 'exc': "OSError(99, 'Cannot assign requested address')", 'traceback': 'Traceback (most recent call last):\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 412, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/celery/app/trace.py", line 704, in __protected_call__\n    return self.run(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 197, in _inner\n    reraise(*exc_info)\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/_compat.py", line 54, in reraise\n    raise value\n  File "/usr/local/lib/python3.6/site-packages/sentry_sdk/integrations/celery.py", line 192, in _inner\n    return f(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/base.py", line 46, in _wrapped\n    result = func(*args, **kwargs)\n  File "/usr/local/lib/python3.6/site-packages/sentry/tasks/email.py", line 73, in send_email\n    send_messages([message])\n  File "/usr/local/lib/python3.6/site-packages/sentry/utils/email.py", line 409, in send_messages\n    sent = connection.send_messages(messages)\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 104, in send_messages\n    new_conn_created = self.open()\n  File "/usr/local/lib/python3.6/site-packages/django/core/mail/backends/smtp.py", line 64, in open\n    self.connection = self.connection_class(self.host, self.port, **connection_params)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1031, in __init__\n    source_address)\n  File "/usr/local/lib/python3.6/smtplib.py", line 251, in __init__\n    (code, msg) = self.connect(host, port)\n  File "/usr/local/lib/python3.6/smtplib.py", line 336, in connect\n    self.sock = self._get_socket(host, port, self.timeout)\n  File "/usr/local/lib/python3.6/smtplib.py", line 1037, in _get_socket\n    self.source_address)\n  File "/usr/local/lib/python3.6/socket.py", line 724, in create_connection\n    raise err\n  File "/usr/local/lib/python3.6/socket.py", line 713, in create_connection\n    sock.connect(sa)\nOSError: [Errno 99] Cannot assign requested address\n', 'args': '()', 'kwargs': "{'message': <django.core.mail.message.EmailMultiAlternatives object at 0x7f89144a6ba8>}", 'description': 'raised unexpected', 'internal': False})
+worker_1                                    | 11:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 11:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 12:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 12:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:26:01 [INFO] sentry.integrations.client: integration.http_response (integration='vsts' status_string='200')
+worker_1                                    | 12:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 12:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 12:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 12:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 13:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 13:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 13:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 13:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 13:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 14:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 14:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 14:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 14:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 14:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 15:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 15:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 15:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 15:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 15:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 16:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 16:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:32:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:37:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 16:37:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:42:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:47:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:52:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 16:52:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 16:57:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 17:02:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 17:07:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 17:07:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 17:12:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 17:17:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 17:22:52 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 17:22:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 17:27:52 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 17:30:08 [INFO] sentry.bgtasks: bgtask.stop (task_name='sentry.bgtasks.clean_dsymcache:clean_dsymcache')
+worker_1                                    | 17:30:08 [INFO] sentry.bgtasks: bgtask.stop (task_name='sentry.bgtasks.clean_releasefilecache:clean_releasefilecache')
+worker_1                                    |
+worker_1                                    | worker: Warm shutdown (MainProcess)
+worker_1                                    | 03:32:55 [INFO] sentry.plugins.github: apps-not-configured
+worker_1                                    | 03:32:57 [INFO] sentry.bgtasks: bgtask.spawn (task_name='sentry.bgtasks.clean_dsymcache:clean_dsymcache')
+worker_1                                    | 03:32:57 [INFO] sentry.bgtasks: bgtask.spawn (task_name='sentry.bgtasks.clean_releasefilecache:clean_releasefilecache')
+worker_1                                    |
+worker_1                                    |  -------------- celery@c24c90b5600b v4.4.7 (cliffs)
+worker_1                                    | --- ***** -----
+worker_1                                    | -- ******* ---- Linux-5.4.0-1047-aws-x86_64-with-debian-10.9 2021-05-12 03:33:05
+worker_1                                    | - *** --- * ---
+worker_1                                    | - ** ---------- [config]
+worker_1                                    | - ** ---------- .> app:         sentry:0x7f87f8977390
+worker_1                                    | - ** ---------- .> transport:   redis://redis:6379/0
+worker_1                                    | - ** ---------- .> results:     disabled://
+worker_1                                    | - *** --- * --- .> concurrency: 2 (prefork)
+worker_1                                    | -- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+worker_1                                    | --- ***** -----
+worker_1                                    |  -------------- [queues]
+worker_1                                    |                 .> activity.notify  exchange=default(direct) key=activity.notify
+worker_1                                    |                 .> alerts           exchange=default(direct) key=alerts
+worker_1                                    |                 .> app_platform     exchange=default(direct) key=app_platform
+worker_1                                    |                 .> assemble         exchange=default(direct) key=assemble
+worker_1                                    |                 .> auth             exchange=default(direct) key=auth
+worker_1                                    |                 .> buffers.process_pending exchange=default(direct) key=buffers.process_pending
+worker_1                                    |                 .> cleanup          exchange=default(direct) key=cleanup
+worker_1                                    |                 .> commits          exchange=default(direct) key=commits
+worker_1                                    |                 .> counters-0       exchange=counters(direct) key=default
+worker_1                                    |                 .> data_export      exchange=default(direct) key=data_export
+worker_1                                    |                 .> default          exchange=default(direct) key=default
+worker_1                                    |                 .> digests.delivery exchange=default(direct) key=digests.delivery
+worker_1                                    |                 .> digests.scheduling exchange=default(direct) key=digests.scheduling
+worker_1                                    |                 .> email            exchange=default(direct) key=email
+worker_1                                    |                 .> events.preprocess_event exchange=default(direct) key=events.preprocess_event
+worker_1                                    |                 .> events.process_event exchange=default(direct) key=events.process_event
+worker_1                                    |                 .> events.reprocess_events exchange=default(direct) key=events.reprocess_events
+worker_1                                    |                 .> events.reprocessing.preprocess_event exchange=default(direct) key=events.reprocessing.preprocess_event
+worker_1                                    |                 .> events.reprocessing.process_event exchange=default(direct) key=events.reprocessing.process_event
+worker_1                                    |                 .> events.reprocessing.symbolicate_event exchange=default(direct) key=events.reprocessing.symbolicate_event
+worker_1                                    |                 .> events.save_event exchange=default(direct) key=events.save_event
+worker_1                                    |                 .> events.symbolicate_event exchange=default(direct) key=events.symbolicate_event
+worker_1                                    |                 .> files.delete     exchange=default(direct) key=files.delete
+worker_1                                    |                 .> group_owners.process_suspect_commits exchange=default(direct) key=group_owners.process_suspect_commits
+worker_1                                    |                 .> incident_snapshots exchange=default(direct) key=incident_snapshots
+worker_1                                    |                 .> incidents        exchange=default(direct) key=incidents
+worker_1                                    |                 .> integrations     exchange=default(direct) key=integrations
+worker_1                                    |                 .> merge            exchange=default(direct) key=merge
+worker_1                                    |                 .> options          exchange=default(direct) key=options
+worker_1                                    |                 .> relay_config     exchange=default(direct) key=relay_config
+worker_1                                    |                 .> reports.deliver  exchange=default(direct) key=reports.deliver
+worker_1                                    |                 .> reports.prepare  exchange=default(direct) key=reports.prepare
+worker_1                                    |                 .> search           exchange=default(direct) key=search
+worker_1                                    |                 .> sleep            exchange=default(direct) key=sleep
+worker_1                                    |                 .> stats            exchange=default(direct) key=stats
+worker_1                                    |                 .> subscriptions    exchange=default(direct) key=subscriptions
+worker_1                                    |                 .> triggers-0       exchange=triggers(direct) key=default
+worker_1                                    |                 .> unmerge          exchange=default(direct) key=unmerge
+worker_1                                    |                 .> update           exchange=default(direct) key=update
+worker_1                                    |
+worker_1                                    | 03:33:08 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 03:33:12 [INFO] sentry.integrations.client: integration.http_response (integration='vsts' status_string='200')
+worker_1                                    | 03:33:13 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 03:38:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 03:43:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 03:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 03:48:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 03:53:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 03:58:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 04:03:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:08:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:13:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:18:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 04:18:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:23:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:28:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:33:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 04:33:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:38:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:43:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 04:48:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:53:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 04:58:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 05:03:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:08:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:13:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:18:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 05:18:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:23:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:28:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:33:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 05:33:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:38:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:43:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 05:48:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:53:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 05:58:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 06:03:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:08:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:13:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:18:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 06:18:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:23:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:27:02 [INFO] sentry.integrations.client: integration.http_response (integration='vsts' status_string='200')
+worker_1                                    | 06:28:03 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:33:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 06:33:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:38:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:43:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 06:48:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:53:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 06:58:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 07:03:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:08:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:13:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:18:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 07:18:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:23:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:28:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:33:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 07:33:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:38:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:43:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 07:48:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:53:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 07:58:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 08:03:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:08:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:13:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:18:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 08:18:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:23:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:28:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:33:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 08:33:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:38:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:43:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 08:48:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:53:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 08:58:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:03:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:08:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:13:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:18:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:18:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:23:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:28:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:33:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:33:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:38:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:43:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 09:48:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:53:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 09:58:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:03:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:08:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:13:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:18:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:18:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:23:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:28:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:33:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:33:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:38:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:43:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:48:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 10:48:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:53:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 10:58:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
+worker_1                                    | 11:03:03 [INFO] sentry.tasks.update_user_reports: update_user_reports.records_updated (reports_to_update=0 reports_with_event=0 updated_reports=0)
+worker_1                                    | 11:03:04 [WARNING] sentry.tasks.release_registry: Release registry URL is not specified, skipping the task.
